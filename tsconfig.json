@@ -30,6 +30,7 @@
         "placeOpenBraceOnNewLineForControlBlocks": false
     },
     "files": [
+        "./src/aiService.ts",
         "./src/NMM_Logic.ts",
         "./typings/angular-protractor/angular-protractor.d.ts",
         "./typings/angularjs/angular.d.ts",
