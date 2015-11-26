@@ -24,7 +24,11 @@ module.exports = function(grunt) {
       },
       dist: {
         // Order is important! gameLogic.js must be first because it defines myApp angular module.
-        src: ['src/NMM_Logic.js', 'src/game.js', 'src/aiService.js'],
+        src: [
+          'src/NMM_Logic.js',
+          'src/game.js',
+          'src/aiService.js'
+        ],
         dest: 'dist/everything.js',
       },
     },
@@ -56,7 +60,7 @@ module.exports = function(grunt) {
             'http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css',
             'http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/fonts/glyphicons-halflings-regular.woff',
             'http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/fonts/glyphicons-halflings-regular.ttf',
-            'http://yoav-zibin.github.io/emulator/dist/turnBasedServices.2.min.js',
+            'http://yoav-zibin.github.io/emulator/dist/turnBasedServices.3.min.js',
             'http://yoav-zibin.github.io/emulator/main.css',
             'dist/everything.min.js',
             'languages/en.js',
@@ -103,15 +107,11 @@ module.exports = function(grunt) {
     },
   });
 
-//  grunt.loadNpmTasks('grunt-contrib-watch');
-//  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-processhtml');
   grunt.loadNpmTasks('grunt-manifest');
-//  grunt.loadNpmTasks('grunt-http-server');
-//  grunt.loadNpmTasks('grunt-protractor-runner');
 
   // Default task(s).
   grunt.registerTask('default', ['karma',

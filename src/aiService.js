@@ -3,8 +3,8 @@
  */
 
 angular.module('myApp').factory('aiService',
-    ["alphaBetaService", "gameLogic",
-function(alphaBetaService, gameLogic) {
+    ["gameLogic",
+function(gameLogic) {
 
     'use strict';
 

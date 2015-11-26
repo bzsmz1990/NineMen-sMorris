@@ -4,10 +4,8 @@
 
 angular.module('myApp')
     .controller('Ctrl',
-    ['$scope', '$log', '$timeout', '$rootScope','$translate',
-        'gameService', 'stateService', 'gameLogic', 'aiService', 'resizeGameAreaService', 'dragAndDropService',
-        function ($scope, $log, $timeout, $rootScope,$translate,
-                  gameService, stateService, gameLogic, aiService, resizeGameAreaService, dragAndDropService) {
+    ['$scope', '$log', '$timeout', '$rootScope', 'gameLogic', 'aiService',
+        function ($scope, $log, $timeout, $rootScope, gameLogic, aiService) {
 
             'use strict';
 
@@ -131,7 +129,7 @@ angular.module('myApp')
                             }
 
                             var color = $scope.turnIndex === 0 ? 'W' : 'B';
-                   
+
                             if ($scope.board [row][col] !== color) {
                                 canceled ();
                                 return;
@@ -356,7 +354,7 @@ angular.module('myApp')
                 var ss = !animationEnded &&
                     state.delta !== undefined &&
                     state.delta.destination[0] === row && state.delta.destination[1] === col;
-                    
+
                 return ss;
 
             };

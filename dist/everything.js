@@ -7,7 +7,7 @@
 
 'use strict';
 
-angular.module ('myApp', ['ngTouch', 'ui.bootstrap']).factory('gameLogic', function () {
+angular.module ('myApp', ['ngTouch', 'ui.bootstrap', 'gameServices']).factory('gameLogic', function () {
     /**
      * Get initial board for the game.
      *    (0,0)----------------(0,1)----------------(0,2)
@@ -542,10 +542,8 @@ angular.module ('myApp', ['ngTouch', 'ui.bootstrap']).factory('gameLogic', funct
 
 angular.module('myApp')
     .controller('Ctrl',
-    ['$scope', '$log', '$timeout', '$rootScope','$translate',
-        'gameService', 'stateService', 'gameLogic', 'aiService', 'resizeGameAreaService', 'dragAndDropService',
-        function ($scope, $log, $timeout, $rootScope,$translate,
-                  gameService, stateService, gameLogic, aiService, resizeGameAreaService, dragAndDropService) {
+    ['$scope', '$log', '$timeout', '$rootScope', 'gameLogic', 'aiService',
+        function ($scope, $log, $timeout, $rootScope, gameLogic, aiService) {
 
             'use strict';
 
@@ -669,7 +667,7 @@ angular.module('myApp')
                             }
 
                             var color = $scope.turnIndex === 0 ? 'W' : 'B';
-                   
+
                             if ($scope.board [row][col] !== color) {
                                 canceled ();
                                 return;
@@ -894,7 +892,7 @@ angular.module('myApp')
                 var ss = !animationEnded &&
                     state.delta !== undefined &&
                     state.delta.destination[0] === row && state.delta.destination[1] === col;
-                    
+
                 return ss;
 
             };
@@ -917,13 +915,14 @@ angular.module('myApp')
                 updateUI: updateUI
             });
 
-        }]);;/**
+        }]);
+;/**
  * Created by zelengzhuang on 4/5/15.
  */
 
 angular.module('myApp').factory('aiService',
-    ["alphaBetaService", "gameLogic",
-function(alphaBetaService, gameLogic) {
+    ["gameLogic",
+function(gameLogic) {
 
     'use strict';
 

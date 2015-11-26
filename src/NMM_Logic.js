@@ -7,7 +7,7 @@
 
 'use strict';
 
-angular.module ('myApp', ['ngTouch', 'ui.bootstrap']).factory('gameLogic', function () {
+angular.module ('myApp', ['ngTouch', 'ui.bootstrap', 'gameServices']).factory('gameLogic', function () {
     /**
      * Get initial board for the game.
      *    (0,0)----------------(0,1)----------------(0,2)
