@@ -18,9 +18,14 @@ interface BoardDelta {
   col: number;
 }
 
+interface IDelta {
+  destination: number[];
+  origin: number[];
+}
+
 interface IState {
   board?: Board;
-  delta?: BoardDelta;
+  delta?: IDelta;
   playerStates?: IPlayerState[]
 }
 
